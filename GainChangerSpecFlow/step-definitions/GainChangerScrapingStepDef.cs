@@ -8,6 +8,8 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace GainChangerSpecFlow
 {
@@ -73,16 +75,23 @@ namespace GainChangerSpecFlow
         [Then(@"Scrape all the required tags")]
         public void ThenScrapeAllTheRequiredTags()
         {
-            string title=driver.FindElement(By.XPath("//meta[@property='og:title']")).GetAttribute("content");
+            string title = driver.FindElement(By.XPath("//meta[@property='og:title']")).GetAttribute("content");
 
             string desc = driver.FindElement(By.XPath("//meta[@property='og:description']")).GetAttribute("content");
 
-            IList<IWebElement> h1 = driver.FindElements(By.TagName("h1")).ToList();
+            string h1 = driver.FindElement(By.TagName("h1")).Text;
 
-            IList<IWebElement> h2 = driver.FindElements(By.TagName("h2")).ToList();
+            IList<string> h2 = driver.FindElements(By.TagName("h2")).Select(x => x.Text).ToList();
+            IList<string> para = driver.FindElements(By.TagName("p")).Select(x => x.Text).ToList();
 
-            IList<IWebElement> para = driver.FindElements(By.TagName("p")).ToList();
-
+            var jsonString = new JsonObjects()
+            {
+                metaTitle = title,
+                metaDescription = desc,
+                headingOneTag = h1,
+                headingTwoTags = new List<HeadingTwoTag> { new HeadingTwoTag { h2Val = JsonConvert.SerializeObject(h2) } },
+                paragraphTags = new List<ParagraphTag> { new ParagraphTag { paraVal = JsonConvert.SerializeObject(para) } }
+            };
         }
 
         [Then(@"Save tags on JSON")]
