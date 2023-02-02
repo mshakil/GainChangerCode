@@ -75,15 +75,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="helper\JsonObjects.cs" />
     <Compile Include="helper\WriteJsonFile.cs" />
     <Compile Include="step-definitions\GainChangerScrapingStepDef.cs" />
-    <Compile Include="step-definitions\DemoStepDefinitions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="features\Demo.feature" />
     <None Include="features\GainChanger.feature" />
     <None Include="packages.config" />
     <None Include="specflow.json" />
