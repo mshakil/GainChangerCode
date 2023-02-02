@@ -90,6 +90,7 @@ namespace GainChangerSpecFlow
         {
             driver.Close();
             driver.Quit();
+            driver.Dispose();
         }
     }
 }
