@@ -119,6 +119,9 @@ this.ScenarioInitialize(scenarioInfo);
 #line 25
  testRunner.And("Save tags on JSON", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+#line 27
+ testRunner.Then("Close Browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
             }
             this.ScenarioCleanup();
         }
