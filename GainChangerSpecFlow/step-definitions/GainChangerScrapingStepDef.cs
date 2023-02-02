@@ -54,7 +54,9 @@ namespace GainChangerSpecFlow
         public void ThenGainchangerWebsiteShouldBeLoggedIn()
         {
             bool page = driver.FindElement(By.ClassName("elementor-widget-container")).Displayed;
+            Thread.Sleep(1000);
             Assert.IsTrue(page);
+            Thread.Sleep(1000);
         }
 
         [When(@"User navigate to resouces page")]
