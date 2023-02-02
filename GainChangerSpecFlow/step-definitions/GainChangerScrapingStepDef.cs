@@ -13,7 +13,8 @@ using Newtonsoft.Json.Linq;
 
 namespace GainChangerSpecFlow
 {
-    [Binding]
+    [Binding]    
+    
     public class GainChangerScrapingStepDef
     {
         IWebDriver driver;
