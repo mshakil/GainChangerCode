@@ -91,11 +91,13 @@ namespace GainChangerSpecFlow
                 metaTitle = title,
                 metaDescription = desc,
                 headingOneTag = h1,
-                headingTwoTags = new List<HeadingTwoTag> { new HeadingTwoTag { h2Val = JsonConvert.SerializeObject(h2) } },
-                paragraphTags = new List<ParagraphTag> { new ParagraphTag { paraVal = JsonConvert.SerializeObject(para) } }
+                headingTwoTags = new List<HeadingTwoTag> { new HeadingTwoTag { heading2Value = JsonConvert.SerializeObject(h2) } },
+                paragraphTags = new List<ParagraphTag> { new ParagraphTag { paragraphValue = JsonConvert.SerializeObject(para) } }
             };
 
             string jsonSerialize = JsonConvert.SerializeObject(jsonString);
+
+            WriteJsonFile.WriteToFile(jsonSerialize);
         }
 
         [Then(@"Save tags on JSON")]
@@ -103,7 +105,7 @@ namespace GainChangerSpecFlow
         {
             driver.Close();
             driver.Quit();
-            driver.Dispose();
+
         }
     }
 }
