@@ -26,7 +26,7 @@ namespace GainChangerSpecFlow
             {
                 Directory.CreateDirectory(path);
             }
-            string filepath = path + @"\JsonFile_" + DateTime.Now.Date.ToShortDateString().Replace('/', '_') + ".json";
+            string filepath = path + @"\JsonFile_" + DateTime.Now.ToLongTimeString().Replace('/', '_') + ".json";
             if (!File.Exists(filepath))
             {
                 // Create a file to write to.   
