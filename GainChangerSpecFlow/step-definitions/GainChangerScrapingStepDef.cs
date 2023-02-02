@@ -94,6 +94,8 @@ namespace GainChangerSpecFlow
                 headingTwoTags = new List<HeadingTwoTag> { new HeadingTwoTag { h2Val = JsonConvert.SerializeObject(h2) } },
                 paragraphTags = new List<ParagraphTag> { new ParagraphTag { paraVal = JsonConvert.SerializeObject(para) } }
             };
+
+            string jsonSerialize = JsonConvert.SerializeObject(jsonString);
         }
 
         [Then(@"Save tags on JSON")]
