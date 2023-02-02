@@ -1,25 +1,23 @@
-using System;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using NUnit.Framework;
 using System.Threading;
-using System.Runtime.InteropServices;
-using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+
 
 namespace GainChangerSpecFlow
 {
-    [Binding]    
-    
+    [Binding]
+
     public class GainChangerScrapingStepDef
     {
         IWebDriver driver;
         const string UserName = "gainchanger";
         const string Password = "justdoit";
+        string jsonSerialize = string.Empty;
 
         [Given(@"Navigate to gainchanger login page")]
         public void GivenNavigateToGainchangerLoginPage()
@@ -96,16 +94,15 @@ namespace GainChangerSpecFlow
                 paragraphTags = new List<ParagraphTag> { new ParagraphTag { paragraphValue = JsonConvert.SerializeObject(para) } }
             };
 
-            string jsonSerialize = JsonConvert.SerializeObject(jsonString);
+            jsonSerialize = JsonConvert.SerializeObject(jsonString);
 
-            WriteJsonFile.WriteToFile(jsonSerialize);
+
         }
 
         [Then(@"Save tags on JSON")]
         public void ThenSaveTagsOnJSON()
         {
-            
-
+            WriteJsonFile.WriteToFile(jsonSerialize);
         }
 
         [Then(@"Close Browser")]
