@@ -19,6 +19,7 @@ namespace GainChangerSpecFlow
         IWebDriver driver;
         const string UserName = "gainchanger";
         const string Password = "justdoit";
+        string jsonSerialize = string.Empty;
 
         [Given(@"Navigate to gainchanger login page")]
         public void GivenNavigateToGainchangerLoginPage()
@@ -95,17 +96,14 @@ namespace GainChangerSpecFlow
                 paragraphTags = new List<ParagraphTag> { new ParagraphTag { paragraphValue = JsonConvert.SerializeObject(para) } }
             };
 
-            string jsonSerialize = JsonConvert.SerializeObject(jsonString);
+            jsonSerialize = JsonConvert.SerializeObject(jsonString);
 
-            WriteJsonFile.WriteToFile(jsonSerialize);
         }
 
         [Then(@"Save tags on JSON")]
         public void ThenSaveTagsOnJSON()
         {
-            driver.Close();
-            driver.Quit();
-
+            WriteJsonFile.WriteToFile(jsonSerialize);
         }
     }
 }
