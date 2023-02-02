@@ -23,3 +23,5 @@ Scenario: Login To Application
 	Then Scrape all the required tags
 
 	And Save tags on JSON
+
+	Then Close Browser

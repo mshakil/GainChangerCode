@@ -104,9 +104,16 @@ namespace GainChangerSpecFlow
         [Then(@"Save tags on JSON")]
         public void ThenSaveTagsOnJSON()
         {
-            driver.Close();
-            driver.Quit();
+            
 
         }
+
+        [Then(@"Close Browser")]
+        public void ThenCloseBrowser()
+        {
+            driver.Close();
+            driver.Quit();
+        }
+
     }
 }
