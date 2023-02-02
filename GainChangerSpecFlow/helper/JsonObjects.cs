@@ -19,11 +19,11 @@ namespace GainChangerSpecFlow
 
     public class HeadingTwoTag
     {
-        public string h2Val { get; set; }
+        public string heading2Value { get; set; }
     }
 
     public class ParagraphTag
     {
-        public string paraVal { get; set; }
+        public string paragraphValue { get; set; }
     }
 }
