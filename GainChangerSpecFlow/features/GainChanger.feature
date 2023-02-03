@@ -24,4 +24,4 @@ Scenario: Login To Application
 
 	And Save tags on JSON
 
-	Then Close Browser
+	
