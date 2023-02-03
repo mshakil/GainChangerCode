@@ -117,6 +117,7 @@
     <Compile Include="helper\SeleniumExtensions.cs" />
     <Compile Include="helper\WriteJsonFile.cs" />
     <Compile Include="hooks\Hooks.cs" />
+    <Compile Include="pom\PageObjects.cs" />
     <Compile Include="step-definitions\GainChangerScrapingStepDef.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
