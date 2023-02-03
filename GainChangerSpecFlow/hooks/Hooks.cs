@@ -16,7 +16,7 @@ namespace GainChangerSpecFlow
         {
             ChromeOptions chromeOptions = new ChromeOptions();
             chromeOptions.AddArguments("start-maximized");
-            chromeOptions.AddArguments("--headless");
+            //chromeOptions.AddArguments("--headless");
 
             new DriverManager().SetUpDriver(new ChromeConfig());
             Console.WriteLine("Setup");
