@@ -21,8 +21,6 @@ namespace GainChangerSpecFlow
         [Given(@"Navigate to gainchanger login page")]
         public void GivenNavigateToGainchangerLoginPage()
         {
-            //Driver = new ChromeDriver();
-            //Driver.Manage().Window.Maximize();
             Driver.Navigate().GoToUrl("https://cozy-fairy-5394bc.netlify.app/");
             Thread.Sleep(2000);
         }
@@ -103,12 +101,5 @@ namespace GainChangerSpecFlow
         {
             WriteJsonFile.WriteToFile(jsonSerialize);
         }
-
-        //[Then(@"Close Browser")]
-        //public void ThenCloseBrowser()
-        //{
-        //    Driver.Close();
-        //    Driver.Quit();
-        //}
     }
 }
