@@ -9,3 +9,5 @@
 /GainChangerSpecFlow/GainChangerSpecFlow.csproj.user
 /.vs
 /packages
+/GainChangerSpecFlow/bin/Release
+/GainChangerSpecFlow/obj/Release
