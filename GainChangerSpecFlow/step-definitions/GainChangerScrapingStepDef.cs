@@ -1,5 +1,4 @@
 using TechTalk.SpecFlow;
-using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using NUnit.Framework;
 using System.Threading;
