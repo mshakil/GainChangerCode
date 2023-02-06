@@ -8,9 +8,9 @@ Scenario: Login To Application
 
 	Given Navigate to gainchanger login page
 
-	When User entered user name "username"
+	When User entered user name "<username>"
 
-	And User entered password "password"
+	And User entered password "<password>"
 
 	And Click on Login button
 
@@ -24,4 +24,6 @@ Scenario: Login To Application
 
 	And Save tags on JSON
 
-	
+Examples:
+	| username    | password |
+	| gainchanger | justdoit |

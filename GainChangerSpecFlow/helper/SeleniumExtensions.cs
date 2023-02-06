@@ -27,5 +27,13 @@ namespace GainChangerSpecFlow
             };
             new Actions(driver).ScrollFromOrigin(origin, 0, 200).Perform();
         }
+
+        public static IWebElement FindElementWithWait(IWebDriver driver, By selector)
+        {
+            WebDriverWait driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            IWebElement firstResult = driverWait.Until(e => e.FindElement(selector));
+
+            return firstResult;
+        }
     }
 }

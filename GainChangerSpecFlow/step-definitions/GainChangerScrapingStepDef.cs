@@ -13,8 +13,8 @@ namespace GainChangerSpecFlow
 
     public class GainChangerScrapingStepDef : DriverHelper
     {
-        const string UserName = "gainchanger";
-        const string Password = "justdoit";
+        //const string UserName = "gainchanger";
+        //const string Password = "justdoit";
         string jsonSerialize = string.Empty;
 
         PageObjects pageObjects = new PageObjects();
@@ -29,14 +29,14 @@ namespace GainChangerSpecFlow
         [When(@"User entered user name ""([^""]*)""")]
         public void WhenUserEnteredUserName(string username)
         {
-            Driver.FindElement(pageObjects.byUserNameTextBox).SendKeys(UserName);
-            Thread.Sleep(1000);
+            IWebElement userNameElement = SeleniumExtensions.FindElementWithWait(Driver, pageObjects.byUserNameTextBox);
+            userNameElement.SendKeys(username);
         }
 
         [When(@"User entered password ""([^""]*)""")]
         public void WhenUserEnteredPassword(string password)
         {
-            Driver.FindElement(pageObjects.byPasswordTextBox).SendKeys(Password);
+            Driver.FindElement(pageObjects.byPasswordTextBox).SendKeys(password);
             Thread.Sleep(1000);
         }
 

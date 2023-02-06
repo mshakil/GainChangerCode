@@ -76,11 +76,19 @@ namespace GainChangerSpecFlow.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Login To Application")]
         [NUnit.Framework.CategoryAttribute("tag1")]
-        public void LoginToApplication()
+        [NUnit.Framework.TestCaseAttribute("gainchanger", "justdoit", null)]
+        public void LoginToApplication(string username, string password, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
+            string[] @__tags = new string[] {
                     "tag1"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("username", username);
+            argumentsOfScenario.Add("password", password);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login To Application", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
@@ -96,10 +104,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("Navigate to gainchanger login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 11
- testRunner.When("User entered user name \"username\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("User entered user name \"{0}\"", username), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
- testRunner.And("User entered password \"password\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("User entered password \"{0}\"", password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
  testRunner.And("Click on Login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
