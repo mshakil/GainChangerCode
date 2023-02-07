@@ -10,7 +10,7 @@ namespace GainChangerSpecFlow
 
         //
 
-        public By byWidgetContainer = By.ClassName("elementor-widget-container");
+        public By byWidgetContainer = By.XPath("//div[@class='elementor-widget-container']/h1");
 
         public By byFirstArticle = By.XPath("//article[1]/div/a");
         public By byReadTime = By.XPath("//span[contains(@class,'span-reading-time')]/..");

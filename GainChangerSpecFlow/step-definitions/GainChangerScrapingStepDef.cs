@@ -49,14 +49,16 @@ namespace GainChangerSpecFlow
         public void ThenGainchangerWebsiteShouldBeLoggedIn()
         {
             bool isLoginSuccessfull = SeleniumExtensions.FindElementWithWait(Driver, pageObjects.byWidgetContainer).Displayed;
-            Assert.IsTrue(isLoginSuccessfull,"Login to application is not successfull");
+            Assert.IsTrue(isLoginSuccessfull, "Login to application is not successfull");
         }
 
         [When(@"User navigate to resouces page")]
         public void WhenUserNavigateToResoucesPage()
         {
             Driver.Navigate().GoToUrl("https://www.gainchanger.com/resources/");
-            Thread.Sleep(3000);
+
+            IWebElement headingTitle = SeleniumExtensions.FindElementWithWait(Driver, pageObjects.byWidgetContainer);
+            Assert.AreEqual("GainChanger Resources", headingTitle.Text, "Resources page heading title is not same as expected.");
         }
 
         [When(@"Click on first blog")]

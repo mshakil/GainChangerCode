@@ -4,6 +4,7 @@ using TechTalk.SpecFlow;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 
 namespace GainChangerSpecFlow
 {
@@ -15,14 +16,15 @@ namespace GainChangerSpecFlow
         public void BeforeScenarioWithTag()
         {
             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.AddArguments("start-maximized");
+            chromeOptions.AddArguments("start-maximized", "no-sandbox");
             chromeOptions.PageLoadStrategy = PageLoadStrategy.Normal;
-            //chromeOptions.AddArguments("--headless");
+
 
             new DriverManager().SetUpDriver(new ChromeConfig());
             Console.WriteLine("Setup");
 
-            Driver = new ChromeDriver(chromeOptions);
+            Driver = new ChromeDriver(ChromeDriverService.CreateDefaultService(), chromeOptions, TimeSpan.FromSeconds(60));
+            Driver.Manage().Timeouts().PageLoad.Add(TimeSpan.FromSeconds(30));
         }
 
         [AfterScenario]
