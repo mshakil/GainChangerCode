@@ -21,7 +21,5 @@ namespace GainChangerSpecFlow
         public By byH1 = By.TagName("h1");
         public By byH2 = By.TagName("h2");
         public By byP = By.TagName("p");
-
-
     }
 }
