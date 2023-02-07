@@ -13,8 +13,6 @@ namespace GainChangerSpecFlow
 
     public class GainChangerScrapingStepDef : DriverHelper
     {
-        //const string UserName = "gainchanger";
-        //const string Password = "justdoit";
         string jsonSerialize = string.Empty;
 
         PageObjects pageObjects = new PageObjects();
@@ -36,24 +34,22 @@ namespace GainChangerSpecFlow
         [When(@"User entered password ""([^""]*)""")]
         public void WhenUserEnteredPassword(string password)
         {
-            Driver.FindElement(pageObjects.byPasswordTextBox).SendKeys(password);
-            Thread.Sleep(1000);
+            IWebElement passwordElement = SeleniumExtensions.FindElementWithWait(Driver, pageObjects.byPasswordTextBox);
+            passwordElement.SendKeys(password);
         }
 
         [When(@"Click on Login button")]
         public void WhenClickOnLoginButton()
         {
-            Driver.FindElement(pageObjects.byLoginButton).Click();
-            Thread.Sleep(1000);
+            IWebElement loginButton = SeleniumExtensions.FindElementWithWait(Driver, pageObjects.byLoginButton);
+            loginButton.Click();
         }
 
         [Then(@"Gainchanger Website should be logged In")]
         public void ThenGainchangerWebsiteShouldBeLoggedIn()
         {
-            bool page = Driver.FindElement(pageObjects.byWidgetContainer).Displayed;
-            Thread.Sleep(1000);
-            Assert.IsTrue(page);
-            Thread.Sleep(1000);
+            bool isLoginSuccessfull = SeleniumExtensions.FindElementWithWait(Driver, pageObjects.byWidgetContainer).Displayed;
+            Assert.IsTrue(isLoginSuccessfull,"Login to application is not successfull");
         }
 
         [When(@"User navigate to resouces page")]
