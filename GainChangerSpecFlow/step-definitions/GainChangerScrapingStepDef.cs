@@ -21,7 +21,7 @@ namespace GainChangerSpecFlow
         public void GivenNavigateToGainchangerLoginPage()
         {
             Driver.Navigate().GoToUrl("https://cozy-fairy-5394bc.netlify.app/");
-            Thread.Sleep(2000);
+                        
         }
 
         [When(@"User entered user name ""([^""]*)""")]
